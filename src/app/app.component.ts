@@ -6,8 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  router = 'recipes';
-  choise(router) {
-    this.router = router === 'recipes' ? 'recipes' : 'shopping';
-  }
+
 }
