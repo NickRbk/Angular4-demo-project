@@ -1,9 +1,9 @@
 import { Ingredient } from '../shared/ingredient.model';
-import { EventEmitter } from '@angular/core';
+// import { EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 export class ShoppingListService {
-  ingredientsChanged = new EventEmitter<Ingredient[]>();
+  ingredientsChanged = new Subject<Ingredient[]>();
   startedEditing = new Subject<number>();
 
   private ingredients: Ingredient[] = [
@@ -24,7 +24,7 @@ export class ShoppingListService {
 
     // add emitter to inform recipients for changes
     // (we use 'slice', so recipients can't know about changes)
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   addIngredients(ingridients: Ingredient[]) {
@@ -35,7 +35,7 @@ export class ShoppingListService {
 
     // it's better to use ES6 spread feature!
     this.ingredients.push(...ingridients);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   updateIngredient(index: number, newIngredient: Ingredient) {
