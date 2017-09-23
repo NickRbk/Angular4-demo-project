@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import {HighlightDirective} from './directives/highlight.directive';
-import { ToggleDirective } from './directives/toggle.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeService } from './recipes/recipe.service';
@@ -18,6 +17,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { RecipesModule } from './recipes/recipes.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,6 @@ import { RecipesModule } from './recipes/recipes.module';
     ShoppingListComponent,
     ShoppingEditComponent,
     HighlightDirective,
-    ToggleDirective,
     SignupComponent,
     SigninComponent
   ],
@@ -35,7 +34,8 @@ import { RecipesModule } from './recipes/recipes.module';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    RecipesModule
+    RecipesModule,
+    SharedModule
   ],
   providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
