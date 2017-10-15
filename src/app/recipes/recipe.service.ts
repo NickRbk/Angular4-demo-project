@@ -38,7 +38,7 @@ export class RecipeService {
       [
         new Ingredient('Tomato', 3),
         new Ingredient('Potato', 5)
-      ]),
+      ])
   ];
 
   constructor(private shoppingListService: ShoppingListService) {}
